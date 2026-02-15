@@ -1,0 +1,69 @@
+# Docker Compose for Damn Vulnerable Web API
+# ?? WARNING: This configuration contains intentional security vulnerabilities
+# For educational purposes only - DO NOT use in production!
+
+version: '3.8'
+
+services:
+  # PostgreSQL Database
+  postgres:
+    image: postgres:16-alpine
+    container_name: vulnerable-postgres
+    environment:
+      # VULNERABILITY: Weak database credentials
+   POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres123
+      POSTGRES_DB: vulnerabledb
+    ports:
+ # VULNERABILITY: Exposing database port to host
+      - "5432:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    networks:
+      - vulnerable-network
+    # VULNERABILITY: No resource limits
+    # VULNERABILITY: Running with default postgres user
+
+  # Vulnerable API
+  api:
+    build:
+   context: ./VulnerableAPI
+      dockerfile: Dockerfile
+    container_name: vulnerable-api
+    ports:
+      - "5000:5000"
+      - "5001:5001"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+ - ASPNETCORE_URLS=http://+:5000
+      - ConnectionStrings__DefaultConnection=Host=postgres;Port=5432;Database=vulnerabledb;Username=postgres;Password=postgres123
+      # VULNERABILITY: Exposing secrets in environment variables
+      - JwtSettings__SecretKey=ThisIsAHardcodedSecretKeyThatIsVeryInsecure123!
+    depends_on:
+      - postgres
+    networks:
+- vulnerable-network
+    # VULNERABILITY: No health checks
+    # VULNERABILITY: No restart policy
+    # VULNERABILITY: Running as root user
+    restart: unless-stopped
+
+  # Optional: Adminer for database management
+  adminer:
+    image: adminer:latest
+    container_name: vulnerable-adminer
+    ports:
+      # VULNERABILITY: Exposing database management interface
+   - "8080:8080"
+    networks:
+      - vulnerable-network
+    environment:
+      - ADMINER_DEFAULT_SERVER=postgres
+    restart: unless-stopped
+
+volumes:
+  postgres-data:
+
+networks:
+  vulnerable-network:
+  driver: bridge
