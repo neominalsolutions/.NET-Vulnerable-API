@@ -1,0 +1,96 @@
+{
+  "scannerProperties": [
+    {
+      "key": "sonar.scanner.app",
+      "value": "ScannerMSBuild"
+    },
+    {
+      "key": "sonar.scanner.appVersion",
+      "value": "11.1"
+    },
+    {
+      "key": "sonar.scanner.bootstrapStartTime",
+      "value": "1771578943000"
+    },
+    {
+      "key": "sonar.projectKey",
+      "value": "VulnerableAPI-Local"
+    },
+    {
+      "key": "sonar.working.directory",
+      "value": "C:\\Users\\Administrator\\Desktop\\Apps\\.NET-Vulnerable-API\\.sonarqube\\out\\.sonar"
+    },
+    {
+      "key": "sonar.projectBaseDir",
+      "value": "C:\\Users\\Administrator\\Desktop\\Apps\\.NET-Vulnerable-API"
+    },
+    {
+      "key": "sonar.pullrequest.cache.basepath",
+      "value": "C:\\Users\\Administrator\\Desktop\\Apps\\.NET-Vulnerable-API"
+    },
+    {
+      "key": "sonar.sources",
+      "value": "C:\\Users\\Administrator\\Desktop\\Apps\\.NET-Vulnerable-API\\.vs\\VulnerableAPI\\config\\applicationhost.config,C:\\Users\\Administrator\\Desktop\\Apps\\.NET-Vulnerable-API\\.vs\\VulnerableAPI\\v18\\DocumentLayout.backup.json,C:\\Users\\Administrator\\Desktop\\Apps\\.NET-Vulnerable-API\\.vs\\VulnerableAPI\\v18\\DocumentLayout.json,C:\\Users\\Administrator\\Desktop\\Apps\\.NET-Vulnerable-API\\docker-compose.yml,C:\\Users\\Administrator\\Desktop\\Apps\\.NET-Vulnerable-API\\start.sh"
+    },
+    {
+      "key": "sonar.tests",
+      "value": ""
+    },
+    {
+      "key": "sonar.modules",
+      "value": "4ECD66E5-E215-4B7D-BF7B-FB601118A58F"
+    },
+    {
+      "key": "4ECD66E5-E215-4B7D-BF7B-FB601118A58F.sonar.projectKey",
+      "value": "VulnerableAPI-Local:4ECD66E5-E215-4B7D-BF7B-FB601118A58F"
+    },
+    {
+      "key": "4ECD66E5-E215-4B7D-BF7B-FB601118A58F.sonar.projectName",
+      "value": "VulnerableAPI"
+    },
+    {
+      "key": "4ECD66E5-E215-4B7D-BF7B-FB601118A58F.sonar.projectBaseDir",
+      "value": "C:\\Users\\Administrator\\Desktop\\Apps\\.NET-Vulnerable-API\\VulnerableAPI"
+    },
+    {
+      "key": "4ECD66E5-E215-4B7D-BF7B-FB601118A58F.sonar.working.directory",
+      "value": "C:\\Users\\Administrator\\Desktop\\Apps\\.NET-Vulnerable-API\\.sonarqube\\out\\.sonar\\mod0"
+    },
+    {
+      "key": "4ECD66E5-E215-4B7D-BF7B-FB601118A58F.sonar.sourceEncoding",
+      "value": "utf-8"
+    },
+    {
+      "key": "4ECD66E5-E215-4B7D-BF7B-FB601118A58F.sonar.tests",
+      "value": ""
+    },
+    {
+      "key": "4ECD66E5-E215-4B7D-BF7B-FB601118A58F.sonar.sources",
+      "value": "C:\\Users\\Administrator\\Desktop\\Apps\\.NET-Vulnerable-API\\VulnerableAPI\\Controllers\\AuthController.cs,C:\\Users\\Administrator\\Desktop\\Apps\\.NET-Vulnerable-API\\VulnerableAPI\\Controllers\\ProductController.cs,C:\\Users\\Administrator\\Desktop\\Apps\\.NET-Vulnerable-API\\VulnerableAPI\\Controllers\\UserController.cs,C:\\Users\\Administrator\\Desktop\\Apps\\.NET-Vulnerable-API\\VulnerableAPI\\Controllers\\UtilityController.cs,C:\\Users\\Administrator\\Desktop\\Apps\\.NET-Vulnerable-API\\VulnerableAPI\\Data\\VulnerableDbContext.cs,C:\\Users\\Administrator\\Desktop\\Apps\\.NET-Vulnerable-API\\VulnerableAPI\\Migrations\\20260215165514_First.cs,C:\\Users\\Administrator\\Desktop\\Apps\\.NET-Vulnerable-API\\VulnerableAPI\\Migrations\\20260215165514_First.Designer.cs,C:\\Users\\Administrator\\Desktop\\Apps\\.NET-Vulnerable-API\\VulnerableAPI\\Migrations\\VulnerableDbContextModelSnapshot.cs,C:\\Users\\Administrator\\Desktop\\Apps\\.NET-Vulnerable-API\\VulnerableAPI\\Models\\AuthModels.cs,C:\\Users\\Administrator\\Desktop\\Apps\\.NET-Vulnerable-API\\VulnerableAPI\\Models\\Product.cs,C:\\Users\\Administrator\\Desktop\\Apps\\.NET-Vulnerable-API\\VulnerableAPI\\Models\\User.cs,C:\\Users\\Administrator\\Desktop\\Apps\\.NET-Vulnerable-API\\VulnerableAPI\\Program.cs,C:\\Users\\Administrator\\Desktop\\Apps\\.NET-Vulnerable-API\\VulnerableAPI\\obj\\Debug\\net8.0\\VulnerableAPI.GlobalUsings.g.cs,\"C:\\Users\\Administrator\\Desktop\\Apps\\.NET-Vulnerable-API\\VulnerableAPI\\obj\\Debug\\net8.0\\.NETCoreApp,Version=v8.0.AssemblyAttributes.cs\",C:\\Users\\Administrator\\Desktop\\Apps\\.NET-Vulnerable-API\\VulnerableAPI\\obj\\Debug\\net8.0\\VulnerableAPI.AssemblyInfo.cs,C:\\Users\\Administrator\\Desktop\\Apps\\.NET-Vulnerable-API\\VulnerableAPI\\obj\\Debug\\net8.0\\VulnerableAPI.MvcApplicationPartsAssemblyInfo.cs,C:\\Users\\Administrator\\Desktop\\Apps\\.NET-Vulnerable-API\\VulnerableAPI\\appsettings.Development.json,C:\\Users\\Administrator\\Desktop\\Apps\\.NET-Vulnerable-API\\VulnerableAPI\\appsettings.json,C:\\Users\\Administrator\\Desktop\\Apps\\.NET-Vulnerable-API\\VulnerableAPI\\.dockerignore,C:\\Users\\Administrator\\Desktop\\Apps\\.NET-Vulnerable-API\\VulnerableAPI\\Dockerfile,C:\\Users\\Administrator\\Desktop\\Apps\\.NET-Vulnerable-API\\VulnerableAPI\\Docs\\AUTH_README_TR.md,C:\\Users\\Administrator\\Desktop\\Apps\\.NET-Vulnerable-API\\VulnerableAPI\\Docs\\AUTH_ZAFIYETLER_TR.md,C:\\Users\\Administrator\\Desktop\\Apps\\.NET-Vulnerable-API\\VulnerableAPI\\Docs\\JWT_ATTACK_GUIDE.md,C:\\Users\\Administrator\\Desktop\\Apps\\.NET-Vulnerable-API\\VulnerableAPI\\Docs\\PRODUCT_README_TR.md,C:\\Users\\Administrator\\Desktop\\Apps\\.NET-Vulnerable-API\\VulnerableAPI\\Docs\\PRODUCT_ZAFIYETLER_TR.md,C:\\Users\\Administrator\\Desktop\\Apps\\.NET-Vulnerable-API\\VulnerableAPI\\Docs\\UtilityController.README.md,C:\\Users\\Administrator\\Desktop\\Apps\\.NET-Vulnerable-API\\VulnerableAPI\\VulnerableAPI.http,C:\\Users\\Administrator\\Desktop\\Apps\\.NET-Vulnerable-API\\VulnerableAPI\\Properties\\launchSettings.json,C:\\Users\\Administrator\\Desktop\\Apps\\.NET-Vulnerable-API\\VulnerableAPI\\obj\\project.assets.json,C:\\Users\\Administrator\\Desktop\\Apps\\.NET-Vulnerable-API\\VulnerableAPI\\obj\\VulnerableAPI.csproj.nuget.dgspec.json,C:\\Users\\Administrator\\Desktop\\Apps\\.NET-Vulnerable-API\\VulnerableAPI\\bin\\Debug\\net8.0\\appsettings.Development.json,C:\\Users\\Administrator\\Desktop\\Apps\\.NET-Vulnerable-API\\VulnerableAPI\\bin\\Debug\\net8.0\\appsettings.json,C:\\Users\\Administrator\\Desktop\\Apps\\.NET-Vulnerable-API\\VulnerableAPI\\bin\\Debug\\net8.0\\VulnerableAPI.deps.json,C:\\Users\\Administrator\\Desktop\\Apps\\.NET-Vulnerable-API\\VulnerableAPI\\bin\\Debug\\net8.0\\VulnerableAPI.runtimeconfig.json,C:\\Users\\Administrator\\Desktop\\Apps\\.NET-Vulnerable-API\\VulnerableAPI\\bin\\Debug\\net8.0\\VulnerableAPI.staticwebassets.endpoints.json,C:\\Users\\Administrator\\Desktop\\Apps\\.NET-Vulnerable-API\\VulnerableAPI\\obj\\Debug\\net8.0\\ApiEndpoints.json,C:\\Users\\Administrator\\Desktop\\Apps\\.NET-Vulnerable-API\\VulnerableAPI\\obj\\Debug\\net8.0\\rjsmcshtml.dswa.cache.json,C:\\Users\\Administrator\\Desktop\\Apps\\.NET-Vulnerable-API\\VulnerableAPI\\obj\\Debug\\net8.0\\rjsmrazor.dswa.cache.json,C:\\Users\\Administrator\\Desktop\\Apps\\.NET-Vulnerable-API\\VulnerableAPI\\obj\\Debug\\net8.0\\rpswa.dswa.cache.json,C:\\Users\\Administrator\\Desktop\\Apps\\.NET-Vulnerable-API\\VulnerableAPI\\obj\\Debug\\net8.0\\staticwebassets.build.endpoints.json,C:\\Users\\Administrator\\Desktop\\Apps\\.NET-Vulnerable-API\\VulnerableAPI\\obj\\Debug\\net8.0\\staticwebassets.build.json,C:\\Users\\Administrator\\Desktop\\Apps\\.NET-Vulnerable-API\\VulnerableAPI\\obj\\Debug\\net8.0\\VulnerableAPI.sourcelink.json,C:\\Users\\Administrator\\Desktop\\Apps\\.NET-Vulnerable-API\\VulnerableAPI\\obj\\Debug\\net8.0\\EndpointInfo\\VulnerableAPI.json"
+    },
+    {
+      "key": "4ECD66E5-E215-4B7D-BF7B-FB601118A58F.sonar.cs.analyzer.projectOutPaths",
+      "value": "C:\\Users\\Administrator\\Desktop\\Apps\\.NET-Vulnerable-API\\.sonarqube\\out\\0"
+    },
+    {
+      "key": "4ECD66E5-E215-4B7D-BF7B-FB601118A58F.sonar.cs.roslyn.reportFilePaths",
+      "value": "C:\\Users\\Administrator\\Desktop\\Apps\\.NET-Vulnerable-API\\.sonarqube\\out\\0\\Issues.json"
+    },
+    {
+      "key": "4ECD66E5-E215-4B7D-BF7B-FB601118A58F.sonar.cs.scanner.telemetry",
+      "value": "C:\\Users\\Administrator\\Desktop\\Apps\\.NET-Vulnerable-API\\.sonarqube\\out\\0\\Telemetry.json"
+    },
+    {
+      "key": "sonar.token",
+      "value": "***"
+    },
+    {
+      "key": "sonar.host.url",
+      "value": "http://localhost:9000"
+    },
+    {
+      "key": "sonar.visualstudio.enable",
+      "value": "false"
+    }
+  ]
+}

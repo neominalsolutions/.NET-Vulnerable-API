@@ -1,0 +1,1 @@
+C:\Users\Administrator\Desktop\Apps\.NET-Vulnerable-API\.sonarqube\out\0

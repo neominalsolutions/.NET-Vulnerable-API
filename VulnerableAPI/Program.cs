@@ -29,7 +29,9 @@ builder.Services.AddDbContext<VulnerableDbContext>(options =>
 
 // VULNERABILITY: API2:2023 - Broken Authentication
 // Hardcoded JWT secret key
-var jwtSecretKey = "ThisIsAHardcodedSecretKeyThatIsVeryInsecure123!";
+var jwtSecretKey = "512249ca47e811669bcce502e986eefdab679635c5714c29e4bc410ccf04f5059ed9f1b73e91e85e0008820562f223e8b3e91fcc52530f9370726d47299d318d";
+
+// Not: SignatureKey doğru olduğu sürece ValidateIssuerSigningKey:false olsa dahi signature key kontrolü yapıyor. 
 
 builder.Services.AddAuthentication(options =>
 {
@@ -42,7 +44,7 @@ builder.Services.AddAuthentication(options =>
     {
   ValidateIssuer = true,
         ValidateAudience = true,
-  ValidateLifetime = false, // VULNERABILITY: Not validating token expiration
+  ValidateLifetime = true, // VULNERABILITY: Not validating token expiration
    ValidateIssuerSigningKey = true,
         ValidIssuer = "VulnerableAPI",
     ValidAudience = "VulnerableAPI",

@@ -77,11 +77,12 @@ public class AuthController : ControllerBase
       }
 
         // VULNERABILITY: Hardcoded JWT secret key (API2:2023 - Broken Authentication)
-    var secretKey = "ThisIsAHardcodedSecretKeyThatIsVeryInsecure123!";
+    var secretKey = "512249ca47e811669bcce502e986eefdab679635c5714c29e4bc410ccf04f5059ed9f1b73e91e85e0008820562f223e8b3e91fcc52530f9370726d47299d318d";
         var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretKey));
-        var credentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
+        var credentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha512); // Not. 256 bit yerine eğer simetrik key kullanılacak ise 512 öneriyoruz.
+                                                                                      // SecurityAlgorithms.HmacSha256 
 
-  var claims = new[]
+        var claims = new[]
         {
       new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
        new Claim(ClaimTypes.Name, user.Username),
@@ -94,7 +95,7 @@ public class AuthController : ControllerBase
             issuer: "VulnerableAPI",
             audience: "VulnerableAPI",
        claims: claims,
-            expires: DateTime.UtcNow.AddDays(365),
+            expires: DateTime.UtcNow.AddMinutes(5), // En fazla 5-15 dakikadan fazlası önerilmiyor. 365 gün verilmişti. 
             signingCredentials: credentials
         );
 
@@ -235,9 +236,11 @@ var hasAuthHeader = Request.Headers.ContainsKey("Authorization");
         _logger.LogWarning("Generating custom token for user: {Username} with role: {Role}", 
             request.Username, request.Role);
 
-        var secretKey = "ThisIsAHardcodedSecretKeyThatIsVeryInsecure123!";
+        // 512 bite çektik keylerin karakter sınırlarının uyuşması lazım.
+
+        var secretKey = "512249ca47e811669bcce502e986eefdab679635c5714c29e4bc410ccf04f5059ed9f1b73e91e85e0008820562f223e8b3e91fcc52530f9370726d47299d318d";
         var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretKey));
-        var credentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
+        var credentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha512);
 
         var claims = new[]
         {
