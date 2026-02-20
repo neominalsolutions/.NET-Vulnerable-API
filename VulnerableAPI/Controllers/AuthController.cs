@@ -300,7 +300,7 @@ var hasAuthHeader = Request.Headers.ContainsKey("Authorization");
 // Request models
 public class TokenDecodeRequest
 {
-    public string Token { get; set; } = string.Empty;
+    public string? Token { get; set; } = string.Empty;
 }
 
 public class CustomTokenRequest

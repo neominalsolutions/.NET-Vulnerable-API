@@ -1,9 +1,11 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System.Text;
 using VulnerableAPI.Data;
+using VulnerableAPI.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -32,6 +34,26 @@ builder.Services.AddDbContext<VulnerableDbContext>(options =>
 var jwtSecretKey = "512249ca47e811669bcce502e986eefdab679635c5714c29e4bc410ccf04f5059ed9f1b73e91e85e0008820562f223e8b3e91fcc52530f9370726d47299d318d";
 
 // Not: SignatureKey doğru olduğu sürece ValidateIssuerSigningKey:false olsa dahi signature key kontrolü yapıyor. 
+
+
+
+builder.Services.AddDbContext<AppIdentityDbContext>(options =>
+    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+builder.Services.AddIdentity<AppUser, AppRole>(opt =>
+{
+    opt.User.RequireUniqueEmail = true;
+    opt.SignIn.RequireConfirmedPhoneNumber = true;
+    opt.SignIn.RequireConfirmedEmail = true;
+    opt.Lockout.MaxFailedAccessAttempts = 3; // 3 hatada hesap kitlensin -> Brute Force ataklarına karşı bir önlem
+    opt.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromSeconds(30); // 30 dk boyunca kitlesin
+    opt.Password.RequireDigit = true;
+    opt.Password.RequireNonAlphanumeric = true;
+    opt.Password.RequiredLength = 12;
+    opt.Password.RequireUppercase  = true;
+    opt.Password.RequireLowercase = true;
+}).AddEntityFrameworkStores<AppIdentityDbContext>().AddDefaultTokenProviders();
+
 
 builder.Services.AddAuthentication(options =>
 {
