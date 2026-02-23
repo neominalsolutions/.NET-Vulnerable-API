@@ -251,6 +251,9 @@ app.Run();
 // dotnet build
 // dotnet sonarscanner end /d:sonar.login="sqp_f3a69c5c7f197286c65ae0c79ecb826e46c3e657"
 
+// SonarQube UI üzerinden;
+// Project Settings / General Settings / Anaysis Scope / Exclusions kısmında **/Migrations/**/*.cs ekleyelim. Migrations klasöründe yapılan değişiklikler ve eklenen kodlar ile ilgili detayları göremeyiz.
+
 // v2. Taratma
 // dotnet sonarscanner begin /k:"VulnerableAPI-Local-V3" /v:"2.0" /d:sonar.host.url="http://localhost:9000" /d:sonar.token="sqp_f3a69c5c7f197286c65ae0c79ecb826e46c3e657" /d:sonar.exclusions="**/Migrations/**/*.cs"
 // dotnet build
