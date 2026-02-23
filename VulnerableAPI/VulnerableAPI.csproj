@@ -23,4 +23,12 @@
     <Folder Include="Migrations\Identity\" />
   </ItemGroup>
 
+  <!--<ItemGroup>
+	<SonarQubeSetting Include="sonar.exclusions">
+		<Value>**/Migrations/**/*.cs</Value>
+	</SonarQubeSetting>
+  </ItemGroup>-->
+
 </Project>
+
+

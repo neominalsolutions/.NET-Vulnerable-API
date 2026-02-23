@@ -6,6 +6,8 @@ using Microsoft.OpenApi.Models;
 using System.Text;
 using VulnerableAPI.Data;
 using VulnerableAPI.Models;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -243,3 +245,13 @@ Console.WriteLine($"?? Vulnerable API is running on: {builder.Configuration["ASP
 Console.WriteLine($"?? Swagger UI available at: http://localhost:5000");
 
 app.Run();
+
+// CLI üzerinden
+// dotnet sonarscanner begin /k:"VulnerableAPI-Local-V3" /d:sonar.host.url="http://localhost:9000"  /d:sonar.token="sqp_f3a69c5c7f197286c65ae0c79ecb826e46c3e657" /d:sonar.exclusions="**/Migrations/**/*.cs"
+// dotnet build
+// dotnet sonarscanner end /d:sonar.login="sqp_f3a69c5c7f197286c65ae0c79ecb826e46c3e657"
+
+// v2. Taratma
+// dotnet sonarscanner begin /k:"VulnerableAPI-Local-V3" /v:"2.0" /d:sonar.host.url="http://localhost:9000" /d:sonar.token="sqp_f3a69c5c7f197286c65ae0c79ecb826e46c3e657" /d:sonar.exclusions="**/Migrations/**/*.cs"
+// dotnet build
+// History kısmında 2.0 versiyonunu görebiliriz. 2.0 versiyonunda yapılan değişiklikler ve eklenen kodlar ile ilgili detayları görebiliriz.

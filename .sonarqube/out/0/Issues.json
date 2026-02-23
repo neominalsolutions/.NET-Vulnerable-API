@@ -107,18 +107,39 @@
           }
         },
         {
-          "ruleId": "S125",
+          "ruleId": "CS8604",
           "level": "warning",
-          "message": "Remove this commented out code.",
+          "message": "Possible null reference argument for parameter 'value' in 'Claim.Claim(string type, string value)'.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Administrator/Desktop/Apps/.NET-Vulnerable-API/VulnerableAPI/Controllers/AuthControllerV2.cs",
+                "region": {
+                  "startLine": 107,
+                  "startColumn": 48,
+                  "endLine": 107,
+                  "endColumn": 61
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8602",
+          "level": "warning",
+          "message": "Dereference of a possibly null reference.",
           "locations": [
             {
               "resultFile": {
                 "uri": "file:///C:/Users/Administrator/Desktop/Apps/.NET-Vulnerable-API/VulnerableAPI/Controllers/AuthController.cs",
                 "region": {
-                  "startLine": 67,
-                  "startColumn": 9,
-                  "endLine": 67,
-                  "endColumn": 108
+                  "startLine": 198,
+                  "startColumn": 24,
+                  "endLine": 198,
+                  "endColumn": 37
                 }
               }
             }
@@ -155,12 +176,115 @@
           "locations": [
             {
               "resultFile": {
+                "uri": "file:///C:/Users/Administrator/Desktop/Apps/.NET-Vulnerable-API/VulnerableAPI/Controllers/AuthController.cs",
+                "region": {
+                  "startLine": 67,
+                  "startColumn": 9,
+                  "endLine": 67,
+                  "endColumn": 108
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S1192",
+          "level": "warning",
+          "message": "Define a constant instead of using this literal 'Electronics' 4 times.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Administrator/Desktop/Apps/.NET-Vulnerable-API/VulnerableAPI/Migrations/20260215165514_First.cs",
+                "region": {
+                  "startLine": 61,
+                  "startColumn": 26,
+                  "endLine": 61,
+                  "endColumn": 39
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/Administrator/Desktop/Apps/.NET-Vulnerable-API/VulnerableAPI/Migrations/20260215165514_First.cs",
+                "region": {
+                  "startLine": 62,
+                  "startColumn": 26,
+                  "endLine": 62,
+                  "endColumn": 39
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/Administrator/Desktop/Apps/.NET-Vulnerable-API/VulnerableAPI/Migrations/20260215165514_First.cs",
+                "region": {
+                  "startLine": 63,
+                  "startColumn": 26,
+                  "endLine": 63,
+                  "endColumn": 39
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/Administrator/Desktop/Apps/.NET-Vulnerable-API/VulnerableAPI/Migrations/20260215165514_First.cs",
+                "region": {
+                  "startLine": 64,
+                  "startColumn": 26,
+                  "endLine": 64,
+                  "endColumn": 39
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1,
+            "customProperties": {
+              "0": null,
+              "1": null,
+              "2": null
+            }
+          }
+        },
+        {
+          "ruleId": "S125",
+          "level": "warning",
+          "message": "Remove this commented out code.",
+          "locations": [
+            {
+              "resultFile": {
                 "uri": "file:///C:/Users/Administrator/Desktop/Apps/.NET-Vulnerable-API/VulnerableAPI/Controllers/UserController.cs",
                 "region": {
                   "startLine": 51,
                   "startColumn": 9,
                   "endLine": 51,
                   "endColumn": 74
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S4487",
+          "level": "warning",
+          "message": "Remove this unread private field '_configuration' or refactor the code to use its value.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Administrator/Desktop/Apps/.NET-Vulnerable-API/VulnerableAPI/Controllers/AuthController.cs",
+                "region": {
+                  "startLine": 19,
+                  "startColumn": 37,
+                  "endLine": 19,
+                  "endColumn": 51
                 }
               }
             }
@@ -275,16 +399,16 @@
         {
           "ruleId": "S1192",
           "level": "warning",
-          "message": "Define a constant instead of using this literal 'Electronics' 4 times.",
+          "message": "Define a constant instead of using this literal 'AspNetRoles' 5 times.",
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///C:/Users/Administrator/Desktop/Apps/.NET-Vulnerable-API/VulnerableAPI/Migrations/20260215165514_First.cs",
+                "uri": "file:///C:/Users/Administrator/Desktop/Apps/.NET-Vulnerable-API/VulnerableAPI/Migrations/Identity/20260220125219_App_Identity_Context.cs",
                 "region": {
-                  "startLine": 61,
-                  "startColumn": 26,
-                  "endLine": 61,
-                  "endColumn": 39
+                  "startLine": 16,
+                  "startColumn": 23,
+                  "endLine": 16,
+                  "endColumn": 36
                 }
               }
             }
@@ -292,34 +416,301 @@
           "relatedLocations": [
             {
               "physicalLocation": {
-                "uri": "file:///C:/Users/Administrator/Desktop/Apps/.NET-Vulnerable-API/VulnerableAPI/Migrations/20260215165514_First.cs",
+                "uri": "file:///C:/Users/Administrator/Desktop/Apps/.NET-Vulnerable-API/VulnerableAPI/Migrations/Identity/20260220125219_App_Identity_Context.cs",
                 "region": {
-                  "startLine": 62,
-                  "startColumn": 26,
-                  "endLine": 62,
-                  "endColumn": 39
+                  "startLine": 70,
+                  "startColumn": 41,
+                  "endLine": 70,
+                  "endColumn": 54
                 }
               }
             },
             {
               "physicalLocation": {
-                "uri": "file:///C:/Users/Administrator/Desktop/Apps/.NET-Vulnerable-API/VulnerableAPI/Migrations/20260215165514_First.cs",
+                "uri": "file:///C:/Users/Administrator/Desktop/Apps/.NET-Vulnerable-API/VulnerableAPI/Migrations/Identity/20260220125219_App_Identity_Context.cs",
                 "region": {
-                  "startLine": 63,
-                  "startColumn": 26,
-                  "endLine": 63,
-                  "endColumn": 39
+                  "startLine": 129,
+                  "startColumn": 41,
+                  "endLine": 129,
+                  "endColumn": 54
                 }
               }
             },
             {
               "physicalLocation": {
-                "uri": "file:///C:/Users/Administrator/Desktop/Apps/.NET-Vulnerable-API/VulnerableAPI/Migrations/20260215165514_First.cs",
+                "uri": "file:///C:/Users/Administrator/Desktop/Apps/.NET-Vulnerable-API/VulnerableAPI/Migrations/Identity/20260220125219_App_Identity_Context.cs",
                 "region": {
-                  "startLine": 64,
-                  "startColumn": 26,
-                  "endLine": 64,
-                  "endColumn": 39
+                  "startLine": 167,
+                  "startColumn": 24,
+                  "endLine": 167,
+                  "endColumn": 37
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/Administrator/Desktop/Apps/.NET-Vulnerable-API/VulnerableAPI/Migrations/Identity/20260220125219_App_Identity_Context.cs",
+                "region": {
+                  "startLine": 217,
+                  "startColumn": 23,
+                  "endLine": 217,
+                  "endColumn": 36
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1,
+            "customProperties": {
+              "0": null,
+              "1": null,
+              "2": null,
+              "3": null
+            }
+          }
+        },
+        {
+          "ruleId": "S1192",
+          "level": "warning",
+          "message": "Define a constant instead of using this literal 'character varying(256)' 6 times.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Administrator/Desktop/Apps/.NET-Vulnerable-API/VulnerableAPI/Migrations/Identity/20260220125219_App_Identity_Context.cs",
+                "region": {
+                  "startLine": 20,
+                  "startColumn": 55,
+                  "endLine": 20,
+                  "endColumn": 79
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/Administrator/Desktop/Apps/.NET-Vulnerable-API/VulnerableAPI/Migrations/Identity/20260220125219_App_Identity_Context.cs",
+                "region": {
+                  "startLine": 21,
+                  "startColumn": 65,
+                  "endLine": 21,
+                  "endColumn": 89
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/Administrator/Desktop/Apps/.NET-Vulnerable-API/VulnerableAPI/Migrations/Identity/20260220125219_App_Identity_Context.cs",
+                "region": {
+                  "startLine": 34,
+                  "startColumn": 59,
+                  "endLine": 34,
+                  "endColumn": 83
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/Administrator/Desktop/Apps/.NET-Vulnerable-API/VulnerableAPI/Migrations/Identity/20260220125219_App_Identity_Context.cs",
+                "region": {
+                  "startLine": 35,
+                  "startColumn": 69,
+                  "endLine": 35,
+                  "endColumn": 93
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/Administrator/Desktop/Apps/.NET-Vulnerable-API/VulnerableAPI/Migrations/Identity/20260220125219_App_Identity_Context.cs",
+                "region": {
+                  "startLine": 36,
+                  "startColumn": 56,
+                  "endLine": 36,
+                  "endColumn": 80
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/Administrator/Desktop/Apps/.NET-Vulnerable-API/VulnerableAPI/Migrations/Identity/20260220125219_App_Identity_Context.cs",
+                "region": {
+                  "startLine": 37,
+                  "startColumn": 66,
+                  "endLine": 37,
+                  "endColumn": 90
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1,
+            "customProperties": {
+              "0": null,
+              "1": null,
+              "2": null,
+              "3": null,
+              "4": null
+            }
+          }
+        },
+        {
+          "ruleId": "S1192",
+          "level": "warning",
+          "message": "Define a constant instead of using this literal 'AspNetUsers' 8 times.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Administrator/Desktop/Apps/.NET-Vulnerable-API/VulnerableAPI/Migrations/Identity/20260220125219_App_Identity_Context.cs",
+                "region": {
+                  "startLine": 30,
+                  "startColumn": 23,
+                  "endLine": 30,
+                  "endColumn": 36
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/Administrator/Desktop/Apps/.NET-Vulnerable-API/VulnerableAPI/Migrations/Identity/20260220125219_App_Identity_Context.cs",
+                "region": {
+                  "startLine": 91,
+                  "startColumn": 41,
+                  "endLine": 91,
+                  "endColumn": 54
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/Administrator/Desktop/Apps/.NET-Vulnerable-API/VulnerableAPI/Migrations/Identity/20260220125219_App_Identity_Context.cs",
+                "region": {
+                  "startLine": 111,
+                  "startColumn": 41,
+                  "endLine": 111,
+                  "endColumn": 54
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/Administrator/Desktop/Apps/.NET-Vulnerable-API/VulnerableAPI/Migrations/Identity/20260220125219_App_Identity_Context.cs",
+                "region": {
+                  "startLine": 135,
+                  "startColumn": 41,
+                  "endLine": 135,
+                  "endColumn": 54
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/Administrator/Desktop/Apps/.NET-Vulnerable-API/VulnerableAPI/Migrations/Identity/20260220125219_App_Identity_Context.cs",
+                "region": {
+                  "startLine": 155,
+                  "startColumn": 41,
+                  "endLine": 155,
+                  "endColumn": 54
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/Administrator/Desktop/Apps/.NET-Vulnerable-API/VulnerableAPI/Migrations/Identity/20260220125219_App_Identity_Context.cs",
+                "region": {
+                  "startLine": 188,
+                  "startColumn": 24,
+                  "endLine": 188,
+                  "endColumn": 37
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/Administrator/Desktop/Apps/.NET-Vulnerable-API/VulnerableAPI/Migrations/Identity/20260220125219_App_Identity_Context.cs",
+                "region": {
+                  "startLine": 193,
+                  "startColumn": 24,
+                  "endLine": 193,
+                  "endColumn": 37
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/Administrator/Desktop/Apps/.NET-Vulnerable-API/VulnerableAPI/Migrations/Identity/20260220125219_App_Identity_Context.cs",
+                "region": {
+                  "startLine": 220,
+                  "startColumn": 23,
+                  "endLine": 220,
+                  "endColumn": 36
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1,
+            "customProperties": {
+              "0": null,
+              "1": null,
+              "2": null,
+              "3": null,
+              "4": null,
+              "5": null,
+              "6": null
+            }
+          }
+        },
+        {
+          "ruleId": "S1192",
+          "level": "warning",
+          "message": "Define a constant instead of using this literal 'boolean' 4 times.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Administrator/Desktop/Apps/.NET-Vulnerable-API/VulnerableAPI/Migrations/Identity/20260220125219_App_Identity_Context.cs",
+                "region": {
+                  "startLine": 38,
+                  "startColumn": 63,
+                  "endLine": 38,
+                  "endColumn": 72
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/Administrator/Desktop/Apps/.NET-Vulnerable-API/VulnerableAPI/Migrations/Identity/20260220125219_App_Identity_Context.cs",
+                "region": {
+                  "startLine": 43,
+                  "startColumn": 69,
+                  "endLine": 43,
+                  "endColumn": 78
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/Administrator/Desktop/Apps/.NET-Vulnerable-API/VulnerableAPI/Migrations/Identity/20260220125219_App_Identity_Context.cs",
+                "region": {
+                  "startLine": 44,
+                  "startColumn": 65,
+                  "endLine": 44,
+                  "endColumn": 74
+                }
+              }
+            },
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/Administrator/Desktop/Apps/.NET-Vulnerable-API/VulnerableAPI/Migrations/Identity/20260220125219_App_Identity_Context.cs",
+                "region": {
+                  "startLine": 46,
+                  "startColumn": 63,
+                  "endLine": 46,
+                  "endColumn": 72
                 }
               }
             }
@@ -336,16 +727,79 @@
         {
           "ruleId": "S4487",
           "level": "warning",
+          "message": "Remove this unread private field '_context' or refactor the code to use its value.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Administrator/Desktop/Apps/.NET-Vulnerable-API/VulnerableAPI/Controllers/AuthControllerV2.cs",
+                "region": {
+                  "startLine": 19,
+                  "startColumn": 42,
+                  "endLine": 19,
+                  "endColumn": 50
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S4487",
+          "level": "warning",
+          "message": "Remove this unread private field '_logger' or refactor the code to use its value.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Administrator/Desktop/Apps/.NET-Vulnerable-API/VulnerableAPI/Controllers/AuthControllerV2.cs",
+                "region": {
+                  "startLine": 20,
+                  "startColumn": 46,
+                  "endLine": 20,
+                  "endColumn": 53
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S4487",
+          "level": "warning",
           "message": "Remove this unread private field '_configuration' or refactor the code to use its value.",
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///C:/Users/Administrator/Desktop/Apps/.NET-Vulnerable-API/VulnerableAPI/Controllers/AuthController.cs",
+                "uri": "file:///C:/Users/Administrator/Desktop/Apps/.NET-Vulnerable-API/VulnerableAPI/Controllers/AuthControllerV2.cs",
                 "region": {
-                  "startLine": 19,
+                  "startLine": 21,
                   "startColumn": 37,
-                  "endLine": 19,
+                  "endLine": 21,
                   "endColumn": 51
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S4487",
+          "level": "warning",
+          "message": "Remove this unread private field 'roleManager' or refactor the code to use its value.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Administrator/Desktop/Apps/.NET-Vulnerable-API/VulnerableAPI/Controllers/AuthControllerV2.cs",
+                "region": {
+                  "startLine": 23,
+                  "startColumn": 43,
+                  "endLine": 23,
+                  "endColumn": 54
                 }
               }
             }
@@ -416,6 +870,48 @@
           }
         },
         {
+          "ruleId": "S1185",
+          "level": "warning",
+          "message": "Remove this method 'OnModelCreating' to simply inherit its behavior.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Administrator/Desktop/Apps/.NET-Vulnerable-API/VulnerableAPI/Data/AppIdentityDbContext.cs",
+                "region": {
+                  "startLine": 15,
+                  "startColumn": 9,
+                  "endLine": 19,
+                  "endColumn": 10
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S6672",
+          "level": "warning",
+          "message": "Update this logger to use its enclosing type.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Administrator/Desktop/Apps/.NET-Vulnerable-API/VulnerableAPI/Controllers/AuthControllerV2.cs",
+                "region": {
+                  "startLine": 26,
+                  "startColumn": 66,
+                  "endLine": 26,
+                  "endColumn": 80
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
           "ruleId": "S2068",
           "level": "warning",
           "message": "\"password\" detected here, make sure this is not a hard-coded credential.",
@@ -455,54 +951,6 @@
           ],
           "properties": {
             "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "CA1861",
-          "level": "note",
-          "message": "Prefer 'static readonly' fields over constant array arguments if the called method is called repeatedly and is not mutating the passed array",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///C:/Users/Administrator/Desktop/Apps/.NET-Vulnerable-API/VulnerableAPI/Migrations/20260215165514_First.cs",
-                "region": {
-                  "startLine": 58,
-                  "startColumn": 26,
-                  "endLine": 58,
-                  "endColumn": 106
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1,
-            "customProperties": {
-              "paramName": "columns"
-            }
-          }
-        },
-        {
-          "ruleId": "CA1861",
-          "level": "note",
-          "message": "Prefer 'static readonly' fields over constant array arguments if the called method is called repeatedly and is not mutating the passed array",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///C:/Users/Administrator/Desktop/Apps/.NET-Vulnerable-API/VulnerableAPI/Migrations/20260215165514_First.cs",
-                "region": {
-                  "startLine": 70,
-                  "startColumn": 26,
-                  "endLine": 70,
-                  "endColumn": 155
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1,
-            "customProperties": {
-              "paramName": "columns"
-            }
           }
         },
         {
@@ -651,43 +1099,6 @@
               "resultFile": {
                 "uri": "file:///C:/Users/Administrator/Desktop/Apps/.NET-Vulnerable-API/VulnerableAPI/Controllers/ProductController.cs",
                 "region": {
-                  "startLine": 135,
-                  "startColumn": 33,
-                  "endLine": 136,
-                  "endColumn": 23
-                }
-              }
-            }
-          ],
-          "relatedLocations": [
-            {
-              "physicalLocation": {
-                "uri": "file:///C:/Users/Administrator/Desktop/Apps/.NET-Vulnerable-API/VulnerableAPI/Controllers/ProductController.cs",
-                "region": {
-                  "startLine": 131,
-                  "startColumn": 13,
-                  "endLine": 131,
-                  "endColumn": 18
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1,
-            "customProperties": {
-              "0": "SQL Query is dynamically formatted and assigned to query."
-            }
-          }
-        },
-        {
-          "ruleId": "S2077",
-          "level": "warning",
-          "message": "Make sure using a dynamically formatted SQL query is safe here.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///C:/Users/Administrator/Desktop/Apps/.NET-Vulnerable-API/VulnerableAPI/Controllers/ProductController.cs",
-                "region": {
                   "startLine": 104,
                   "startColumn": 34,
                   "endLine": 105,
@@ -717,18 +1128,18 @@
           }
         },
         {
-          "ruleId": "S6968",
+          "ruleId": "S2077",
           "level": "warning",
-          "message": "Annotate this method with ProducesResponseType containing the return type for successful responses.",
+          "message": "Make sure using a dynamically formatted SQL query is safe here.",
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///C:/Users/Administrator/Desktop/Apps/.NET-Vulnerable-API/VulnerableAPI/Controllers/UtilityController.cs",
+                "uri": "file:///C:/Users/Administrator/Desktop/Apps/.NET-Vulnerable-API/VulnerableAPI/Controllers/ProductController.cs",
                 "region": {
-                  "startLine": 215,
-                  "startColumn": 26,
-                  "endLine": 215,
-                  "endColumn": 32
+                  "startLine": 135,
+                  "startColumn": 33,
+                  "endLine": 136,
+                  "endColumn": 23
                 }
               }
             }
@@ -736,12 +1147,12 @@
           "relatedLocations": [
             {
               "physicalLocation": {
-                "uri": "file:///C:/Users/Administrator/Desktop/Apps/.NET-Vulnerable-API/VulnerableAPI/Controllers/UtilityController.cs",
+                "uri": "file:///C:/Users/Administrator/Desktop/Apps/.NET-Vulnerable-API/VulnerableAPI/Controllers/ProductController.cs",
                 "region": {
-                  "startLine": 220,
-                  "startColumn": 16,
-                  "endLine": 231,
-                  "endColumn": 3
+                  "startLine": 131,
+                  "startColumn": 13,
+                  "endLine": 131,
+                  "endColumn": 18
                 }
               }
             }
@@ -749,60 +1160,23 @@
           "properties": {
             "warningLevel": 1,
             "customProperties": {
-              "0": null
+              "0": "SQL Query is dynamically formatted and assigned to query."
             }
           }
         },
         {
-          "ruleId": "S6968",
+          "ruleId": "S6418",
           "level": "warning",
-          "message": "Annotate this method with ProducesResponseType containing the return type for successful responses.",
+          "message": "\"secretKey\" detected here, make sure this is not a hard-coded secret.",
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///C:/Users/Administrator/Desktop/Apps/.NET-Vulnerable-API/VulnerableAPI/Controllers/AuthController.cs",
+                "uri": "file:///C:/Users/Administrator/Desktop/Apps/.NET-Vulnerable-API/VulnerableAPI/Controllers/AuthControllerV2.cs",
                 "region": {
-                  "startLine": 145,
-                  "startColumn": 26,
-                  "endLine": 145,
-                  "endColumn": 30
-                }
-              }
-            }
-          ],
-          "relatedLocations": [
-            {
-              "physicalLocation": {
-                "uri": "file:///C:/Users/Administrator/Desktop/Apps/.NET-Vulnerable-API/VulnerableAPI/Controllers/AuthController.cs",
-                "region": {
-                  "startLine": 150,
-                  "startColumn": 9,
-                  "endLine": 156,
-                  "endColumn": 7
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1,
-            "customProperties": {
-              "0": null
-            }
-          }
-        },
-        {
-          "ruleId": "CA1845",
-          "level": "note",
-          "message": "Use span-based 'string.Concat' and 'AsSpan' instead of 'Substring'",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///C:/Users/Administrator/Desktop/Apps/.NET-Vulnerable-API/VulnerableAPI/Controllers/AuthController.cs",
-                "region": {
-                  "startLine": 155,
-                  "startColumn": 40,
-                  "endLine": 155,
-                  "endColumn": 104
+                  "startLine": 100,
+                  "startColumn": 33,
+                  "endLine": 100,
+                  "endColumn": 163
                 }
               }
             }
@@ -812,18 +1186,31 @@
           }
         },
         {
-          "ruleId": "ASP0015",
-          "level": "note",
-          "message": "The header 'Authorization' can be accessed using the Authorization property",
+          "ruleId": "S6968",
+          "level": "warning",
+          "message": "Annotate this method with ProducesResponseType containing the return type for successful responses.",
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///C:/Users/Administrator/Desktop/Apps/.NET-Vulnerable-API/VulnerableAPI/Controllers/AuthController.cs",
+                "uri": "file:///C:/Users/Administrator/Desktop/Apps/.NET-Vulnerable-API/VulnerableAPI/Controllers/AuthControllerV2.cs",
+                "region": {
+                  "startLine": 146,
+                  "startColumn": 26,
+                  "endLine": 146,
+                  "endColumn": 42
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/Administrator/Desktop/Apps/.NET-Vulnerable-API/VulnerableAPI/Controllers/AuthControllerV2.cs",
                 "region": {
                   "startLine": 148,
-                  "startColumn": 38,
+                  "startColumn": 16,
                   "endLine": 148,
-                  "endColumn": 70
+                  "endColumn": 67
                 }
               }
             }
@@ -831,8 +1218,7 @@
           "properties": {
             "warningLevel": 1,
             "customProperties": {
-              "HeaderName": "Authorization",
-              "ResolvedPropertyName": "Authorization"
+              "0": null
             }
           }
         },
@@ -897,6 +1283,126 @@
           ],
           "properties": {
             "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S6968",
+          "level": "warning",
+          "message": "Annotate this method with ProducesResponseType containing the return type for successful responses.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Administrator/Desktop/Apps/.NET-Vulnerable-API/VulnerableAPI/Controllers/AuthController.cs",
+                "region": {
+                  "startLine": 145,
+                  "startColumn": 26,
+                  "endLine": 145,
+                  "endColumn": 30
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/Administrator/Desktop/Apps/.NET-Vulnerable-API/VulnerableAPI/Controllers/AuthController.cs",
+                "region": {
+                  "startLine": 150,
+                  "startColumn": 9,
+                  "endLine": 156,
+                  "endColumn": 7
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1,
+            "customProperties": {
+              "0": null
+            }
+          }
+        },
+        {
+          "ruleId": "CA1845",
+          "level": "note",
+          "message": "Use span-based 'string.Concat' and 'AsSpan' instead of 'Substring'",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Administrator/Desktop/Apps/.NET-Vulnerable-API/VulnerableAPI/Controllers/AuthController.cs",
+                "region": {
+                  "startLine": 155,
+                  "startColumn": 40,
+                  "endLine": 155,
+                  "endColumn": 104
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S6968",
+          "level": "warning",
+          "message": "Annotate this method with ProducesResponseType containing the return type for successful responses.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Administrator/Desktop/Apps/.NET-Vulnerable-API/VulnerableAPI/Controllers/UtilityController.cs",
+                "region": {
+                  "startLine": 215,
+                  "startColumn": 26,
+                  "endLine": 215,
+                  "endColumn": 32
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/Administrator/Desktop/Apps/.NET-Vulnerable-API/VulnerableAPI/Controllers/UtilityController.cs",
+                "region": {
+                  "startLine": 220,
+                  "startColumn": 16,
+                  "endLine": 231,
+                  "endColumn": 3
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1,
+            "customProperties": {
+              "0": null
+            }
+          }
+        },
+        {
+          "ruleId": "ASP0015",
+          "level": "note",
+          "message": "The header 'Authorization' can be accessed using the Authorization property",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Administrator/Desktop/Apps/.NET-Vulnerable-API/VulnerableAPI/Controllers/AuthController.cs",
+                "region": {
+                  "startLine": 148,
+                  "startColumn": 38,
+                  "endLine": 148,
+                  "endColumn": 70
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1,
+            "customProperties": {
+              "HeaderName": "Authorization",
+              "ResolvedPropertyName": "Authorization"
+            }
           }
         },
         {
@@ -982,24 +1488,40 @@
           }
         },
         {
-          "ruleId": "S4507",
+          "ruleId": "S6968",
           "level": "warning",
-          "message": "Make sure this debug feature is deactivated before delivering the code in production.",
+          "message": "Annotate this method with ProducesResponseType containing the return type for successful responses.",
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///C:/Users/Administrator/Desktop/Apps/.NET-Vulnerable-API/VulnerableAPI/Program.cs",
+                "uri": "file:///C:/Users/Administrator/Desktop/Apps/.NET-Vulnerable-API/VulnerableAPI/Controllers/AuthController.cs",
                 "region": {
-                  "startLine": 134,
-                  "startColumn": 1,
-                  "endLine": 134,
-                  "endColumn": 32
+                  "startLine": 177,
+                  "startColumn": 26,
+                  "endLine": 177,
+                  "endColumn": 37
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Users/Administrator/Desktop/Apps/.NET-Vulnerable-API/VulnerableAPI/Controllers/AuthController.cs",
+                "region": {
+                  "startLine": 218,
+                  "startColumn": 15,
+                  "endLine": 218,
+                  "endColumn": 27
                 }
               }
             }
           ],
           "properties": {
-            "warningLevel": 1
+            "warningLevel": 1,
+            "customProperties": {
+              "0": null
+            }
           }
         },
         {
@@ -1061,64 +1583,6 @@
           }
         },
         {
-          "ruleId": "S6968",
-          "level": "warning",
-          "message": "Annotate this method with ProducesResponseType containing the return type for successful responses.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///C:/Users/Administrator/Desktop/Apps/.NET-Vulnerable-API/VulnerableAPI/Controllers/AuthController.cs",
-                "region": {
-                  "startLine": 177,
-                  "startColumn": 26,
-                  "endLine": 177,
-                  "endColumn": 37
-                }
-              }
-            }
-          ],
-          "relatedLocations": [
-            {
-              "physicalLocation": {
-                "uri": "file:///C:/Users/Administrator/Desktop/Apps/.NET-Vulnerable-API/VulnerableAPI/Controllers/AuthController.cs",
-                "region": {
-                  "startLine": 218,
-                  "startColumn": 15,
-                  "endLine": 218,
-                  "endColumn": 27
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1,
-            "customProperties": {
-              "0": null
-            }
-          }
-        },
-        {
-          "ruleId": "S6418",
-          "level": "warning",
-          "message": "\"jwtSecretKey\" detected here, make sure this is not a hard-coded secret.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///C:/Users/Administrator/Desktop/Apps/.NET-Vulnerable-API/VulnerableAPI/Program.cs",
-                "region": {
-                  "startLine": 32,
-                  "startColumn": 20,
-                  "endLine": 32,
-                  "endColumn": 150
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
           "ruleId": "S6932",
           "level": "warning",
           "message": "Use model binding instead of accessing the raw request data",
@@ -1161,6 +1625,96 @@
           }
         },
         {
+          "ruleId": "S4507",
+          "level": "warning",
+          "message": "Make sure this debug feature is deactivated before delivering the code in production.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Administrator/Desktop/Apps/.NET-Vulnerable-API/VulnerableAPI/Program.cs",
+                "region": {
+                  "startLine": 168,
+                  "startColumn": 1,
+                  "endLine": 168,
+                  "endColumn": 32
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S6418",
+          "level": "warning",
+          "message": "\"jwtSecretKey\" detected here, make sure this is not a hard-coded secret.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Administrator/Desktop/Apps/.NET-Vulnerable-API/VulnerableAPI/Program.cs",
+                "region": {
+                  "startLine": 86,
+                  "startColumn": 20,
+                  "endLine": 86,
+                  "endColumn": 150
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CA1861",
+          "level": "note",
+          "message": "Prefer 'static readonly' fields over constant array arguments if the called method is called repeatedly and is not mutating the passed array",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Administrator/Desktop/Apps/.NET-Vulnerable-API/VulnerableAPI/Migrations/20260215165514_First.cs",
+                "region": {
+                  "startLine": 58,
+                  "startColumn": 26,
+                  "endLine": 58,
+                  "endColumn": 106
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1,
+            "customProperties": {
+              "paramName": "columns"
+            }
+          }
+        },
+        {
+          "ruleId": "CA1861",
+          "level": "note",
+          "message": "Prefer 'static readonly' fields over constant array arguments if the called method is called repeatedly and is not mutating the passed array",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Administrator/Desktop/Apps/.NET-Vulnerable-API/VulnerableAPI/Migrations/20260215165514_First.cs",
+                "region": {
+                  "startLine": 70,
+                  "startColumn": 26,
+                  "endLine": 70,
+                  "endColumn": 155
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1,
+            "customProperties": {
+              "paramName": "columns"
+            }
+          }
+        },
+        {
           "ruleId": "S5122",
           "level": "warning",
           "message": "Make sure this permissive CORS policy is safe here.",
@@ -1169,10 +1723,31 @@
               "resultFile": {
                 "uri": "file:///C:/Users/Administrator/Desktop/Apps/.NET-Vulnerable-API/VulnerableAPI/Program.cs",
                 "region": {
-                  "startLine": 17,
+                  "startLine": 71,
                   "startColumn": 9,
-                  "endLine": 17,
+                  "endLine": 71,
                   "endColumn": 32
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "ASP0025",
+          "level": "note",
+          "message": "Use AddAuthorizationBuilder to register authorization services and construct policies",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/Administrator/Desktop/Apps/.NET-Vulnerable-API/VulnerableAPI/Program.cs",
+                "region": {
+                  "startLine": 155,
+                  "startColumn": 1,
+                  "endLine": 162,
+                  "endColumn": 3
                 }
               }
             }
@@ -1190,9 +1765,9 @@
               "resultFile": {
                 "uri": "file:///C:/Users/Administrator/Desktop/Apps/.NET-Vulnerable-API/VulnerableAPI/Program.cs",
                 "region": {
-                  "startLine": 184,
+                  "startLine": 218,
                   "startColumn": 9,
-                  "endLine": 184,
+                  "endLine": 218,
                   "endColumn": 35
                 }
               }
@@ -1211,9 +1786,9 @@
               "resultFile": {
                 "uri": "file:///C:/Users/Administrator/Desktop/Apps/.NET-Vulnerable-API/VulnerableAPI/Program.cs",
                 "region": {
-                  "startLine": 213,
+                  "startLine": 247,
                   "startColumn": 1,
-                  "endLine": 213,
+                  "endLine": 247,
                   "endColumn": 10
                 }
               }
@@ -1228,6 +1803,16 @@
         "ASP0015": {
           "id": "ASP0015",
           "shortDescription": "Suggest using IHeaderDictionary properties",
+          "defaultLevel": "note",
+          "helpUri": "https://aka.ms/aspnet/analyzers",
+          "properties": {
+            "category": "Usage",
+            "isEnabledByDefault": true
+          }
+        },
+        "ASP0025": {
+          "id": "ASP0025",
+          "shortDescription": "Use AddAuthorizationBuilder",
           "defaultLevel": "note",
           "helpUri": "https://aka.ms/aspnet/analyzers",
           "properties": {
@@ -1279,6 +1864,34 @@
             ]
           }
         },
+        "CS8602": {
+          "id": "CS8602",
+          "shortDescription": "Dereference of a possibly null reference.",
+          "defaultLevel": "warning",
+          "helpUri": "https://msdn.microsoft.com/query/roslyn.query?appId=roslyn&k=k(CS8602)",
+          "properties": {
+            "category": "Compiler",
+            "isEnabledByDefault": true,
+            "tags": [
+              "Compiler",
+              "Telemetry"
+            ]
+          }
+        },
+        "CS8604": {
+          "id": "CS8604",
+          "shortDescription": "Possible null reference argument.",
+          "defaultLevel": "warning",
+          "helpUri": "https://msdn.microsoft.com/query/roslyn.query?appId=roslyn&k=k(CS8604)",
+          "properties": {
+            "category": "Compiler",
+            "isEnabledByDefault": true,
+            "tags": [
+              "Compiler",
+              "Telemetry"
+            ]
+          }
+        },
         "CS8618": {
           "id": "CS8618",
           "shortDescription": "Non-nullable field must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring as nullable.",
@@ -1290,6 +1903,23 @@
             "tags": [
               "Compiler",
               "Telemetry"
+            ]
+          }
+        },
+        "S1185": {
+          "id": "S1185",
+          "shortDescription": "Overriding members should do more than simply call the same member in the base class",
+          "fullDescription": "Overriding a method just to call the same method from the base class without performing any other actions is useless and misleading. The only time this is justified is in sealed overriding methods, where the effect is to lock in the parent class behavior. This rule ignores overrides of Equals and GetHashCode.",
+          "defaultLevel": "warning",
+          "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-1185",
+          "properties": {
+            "category": "Minor Code Smell",
+            "isEnabledByDefault": true,
+            "tags": [
+              "C#",
+              "MainSourceScope",
+              "TestSourceScope",
+              "SonarWay"
             ]
           }
         },
@@ -1415,6 +2045,22 @@
           "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-6418",
           "properties": {
             "category": "Blocker Security Hotspot",
+            "isEnabledByDefault": true,
+            "tags": [
+              "C#",
+              "MainSourceScope",
+              "SonarWay"
+            ]
+          }
+        },
+        "S6672": {
+          "id": "S6672",
+          "shortDescription": "Generic logger injection should match enclosing type",
+          "fullDescription": "In most logging frameworks, it’s good practice to set the logger name to match its enclosing type, as enforced by {rule:csharpsquid:S3416}.",
+          "defaultLevel": "warning",
+          "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-6672",
+          "properties": {
+            "category": "Minor Code Smell",
             "isEnabledByDefault": true,
             "tags": [
               "C#",

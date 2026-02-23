@@ -12,7 +12,8 @@
   <HasBeginStepCommandLineTruststorePassword>false</HasBeginStepCommandLineTruststorePassword>
   <SonarQubeHostUrl>http://localhost:9000</SonarQubeHostUrl>
   <SonarQubeVersion>26.2.0.119303</SonarQubeVersion>
-  <SonarProjectKey>VulnerableAPI-Local</SonarProjectKey>
+  <SonarProjectKey>VulnerableAPI-Local-V3</SonarProjectKey>
+  <SonarProjectVersion>2.0</SonarProjectVersion>
   <AdditionalConfig>
     <ConfigSetting Id="BuildUri" />
     <ConfigSetting Id="TfsUri" />
@@ -153,6 +154,7 @@
   </ServerSettings>
   <LocalSettings>
     <Property Name="sonar.host.url">http://localhost:9000</Property>
+    <Property Name="sonar.exclusions">**/Migrations/**/*.cs</Property>
   </LocalSettings>
   <ScannerOptsSettings />
   <AnalyzersSettings>
