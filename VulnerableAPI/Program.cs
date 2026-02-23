@@ -9,97 +9,7 @@ using VulnerableAPI.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// VULNERABILITY: API8:2023 - Security Misconfiguration
-// Disable HTTPS redirection and allow all CORS origins
-builder.Services.AddCors(options =>
-{
-    options.AddPolicy("AllowAll", policy =>
-    {
-        // VULNERABILITY: Allowing all origins, headers, and methods
-        policy.AllowAnyOrigin()
-         .AllowAnyMethod()
-    .AllowAnyHeader();
-    });
-});
 
-// Add PostgreSQL Database Context
-var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") 
-    ?? "Host=localhost;Database=vulnerabledb;Username=admin;Password=password123";
-
-builder.Services.AddDbContext<VulnerableDbContext>(options =>
-    options.UseNpgsql(connectionString));
-
-// VULNERABILITY: API2:2023 - Broken Authentication
-// Hardcoded JWT secret key
-var jwtSecretKey = "512249ca47e811669bcce502e986eefdab679635c5714c29e4bc410ccf04f5059ed9f1b73e91e85e0008820562f223e8b3e91fcc52530f9370726d47299d318d";
-
-// Not: SignatureKey doğru olduğu sürece ValidateIssuerSigningKey:false olsa dahi signature key kontrolü yapıyor. 
-
-
-
-builder.Services.AddDbContext<AppIdentityDbContext>(options =>
-    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
-
-builder.Services.AddIdentity<AppUser, AppRole>(opt =>
-{
-    opt.User.RequireUniqueEmail = true;
-    opt.SignIn.RequireConfirmedPhoneNumber = true;
-    opt.SignIn.RequireConfirmedEmail = true;
-    opt.Lockout.MaxFailedAccessAttempts = 3; // 3 hatada hesap kitlensin -> Brute Force ataklarına karşı bir önlem
-    opt.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromSeconds(30); // 30 dk boyunca kitlesin
-    opt.Password.RequireDigit = true;
-    opt.Password.RequireNonAlphanumeric = true;
-    opt.Password.RequiredLength = 12;
-    opt.Password.RequireUppercase  = true;
-    opt.Password.RequireLowercase = true;
-}).AddEntityFrameworkStores<AppIdentityDbContext>().AddDefaultTokenProviders();
-
-
-builder.Services.AddAuthentication(options =>
-{
-    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-})
-.AddJwtBearer(options =>
-{
-    options.TokenValidationParameters = new TokenValidationParameters
-    {
-  ValidateIssuer = true,
-        ValidateAudience = true,
-  ValidateLifetime = true, // VULNERABILITY: Not validating token expiration
-   ValidateIssuerSigningKey = true,
-        ValidIssuer = "VulnerableAPI",
-    ValidAudience = "VulnerableAPI",
-        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtSecretKey))
-    };
-    
-    // VULNERABILITY: Logging authentication details
-    options.Events = new JwtBearerEvents
- {
-   OnAuthenticationFailed = context =>
-        {
-        Console.WriteLine($"Authentication failed: {context.Exception.Message}");
-      return Task.CompletedTask;
-      },
-        OnTokenValidated = context =>
-    {
-   Console.WriteLine($"Token validated for user: {context.Principal?.Identity?.Name}");
-      return Task.CompletedTask;
-   },
-        // VULNERABILITY: Not properly handling security token exceptions
-        OnMessageReceived = context =>
-   {
-    var token = context.Token;
-       if (!string.IsNullOrEmpty(token))
-  {
-     Console.WriteLine($"Received token: {token.Substring(0, Math.Min(20, token.Length))}...");
-            }
-     return Task.CompletedTask;
-        }
-    };
-});
-
-builder.Services.AddAuthorization();
 
 builder.Services.AddControllers();
 
@@ -146,6 +56,106 @@ builder.Services.AddSwaggerGen(c =>
  },
     Array.Empty<string>()
         }
+    });
+});
+
+// VULNERABILITY: API8:2023 - Security Misconfiguration
+// Disable HTTPS redirection and allow all CORS origins
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAll", policy =>
+    {
+        // VULNERABILITY: Allowing all origins, headers, and methods
+        policy.AllowAnyOrigin()
+         .AllowAnyMethod()
+    .AllowAnyHeader();
+    });
+});
+
+// Add PostgreSQL Database Context
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection")
+    ?? "Host=localhost;Database=vulnerabledb;Username=admin;Password=password123";
+
+builder.Services.AddDbContext<VulnerableDbContext>(options =>
+    options.UseNpgsql(connectionString));
+
+// VULNERABILITY: API2:2023 - Broken Authentication
+// Hardcoded JWT secret key
+var jwtSecretKey = "512249ca47e811669bcce502e986eefdab679635c5714c29e4bc410ccf04f5059ed9f1b73e91e85e0008820562f223e8b3e91fcc52530f9370726d47299d318d";
+
+// Not: SignatureKey doğru olduğu sürece ValidateIssuerSigningKey:false olsa dahi signature key kontrolü yapıyor. 
+
+
+
+builder.Services.AddDbContext<AppIdentityDbContext>(options =>
+    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+builder.Services.AddIdentity<AppUser, AppRole>(opt =>
+{
+    opt.User.RequireUniqueEmail = true;
+    opt.SignIn.RequireConfirmedPhoneNumber = true;
+    opt.SignIn.RequireConfirmedEmail = true;
+    opt.Lockout.MaxFailedAccessAttempts = 3; // 3 hatada hesap kitlensin -> Brute Force ataklarına karşı bir önlem
+    opt.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromSeconds(30); // 30 dk boyunca kitlesin
+    opt.Password.RequireDigit = true;
+    opt.Password.RequireNonAlphanumeric = true;
+    opt.Password.RequiredLength = 12;
+    opt.Password.RequireUppercase = true;
+    opt.Password.RequireLowercase = true;
+}).AddEntityFrameworkStores<AppIdentityDbContext>().AddDefaultTokenProviders();
+
+
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+})
+.AddJwtBearer(options =>
+{
+    options.TokenValidationParameters = new TokenValidationParameters
+    {
+        ValidateIssuer = true,
+        ValidateAudience = true,
+        ValidateLifetime = true, // VULNERABILITY: Not validating token expiration
+        ValidateIssuerSigningKey = true,
+        ValidIssuer = "VulnerableAPI",
+        ValidAudience = "VulnerableAPI",
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtSecretKey))
+    };
+
+    // VULNERABILITY: Logging authentication details
+    options.Events = new JwtBearerEvents
+    {
+        OnAuthenticationFailed = context =>
+        {
+            Console.WriteLine($"Authentication failed: {context.Exception.Message}");
+            return Task.CompletedTask;
+        },
+        OnTokenValidated = context =>
+        {
+            Console.WriteLine($"Token validated for user: {context.Principal?.Identity?.Name}");
+            return Task.CompletedTask;
+        },
+        // VULNERABILITY: Not properly handling security token exceptions
+        OnMessageReceived = context =>
+        {
+            var token = context.Token;
+            if (!string.IsNullOrEmpty(token))
+            {
+                Console.WriteLine($"Received token: {token.Substring(0, Math.Min(20, token.Length))}...");
+            }
+            return Task.CompletedTask;
+        }
+    };
+});
+
+
+builder.Services.AddAuthorization(opt =>
+{
+    opt.AddPolicy("Only_IT_Department", policy =>
+    {
+        policy.RequireAuthenticatedUser();
+        policy.RequireClaim("Department", "IT");
     });
 });
 
