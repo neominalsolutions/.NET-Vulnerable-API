@@ -12,8 +12,8 @@
   <HasBeginStepCommandLineTruststorePassword>false</HasBeginStepCommandLineTruststorePassword>
   <SonarQubeHostUrl>http://localhost:9000</SonarQubeHostUrl>
   <SonarQubeVersion>26.2.0.119303</SonarQubeVersion>
-  <SonarProjectKey>VulnerableAPI-Local-V3</SonarProjectKey>
-  <SonarProjectVersion>2.0</SonarProjectVersion>
+  <SonarProjectKey>.NET-Vulnerable-API</SonarProjectKey>
+  <SonarProjectVersion>3.0</SonarProjectVersion>
   <AdditionalConfig>
     <ConfigSetting Id="BuildUri" />
     <ConfigSetting Id="TfsUri" />
@@ -151,10 +151,11 @@
     <Property Name="sonar.updatecenter.url">https://downloads.sonarsource.com/sonarqube/update/update-center.properties</Property>
     <Property Name="sonar.core.id">147B411E-AZxXlFdqxUo5G7LHcUnB</Property>
     <Property Name="sonar.core.startTime">2/20/2026 11:39:16 AM</Property>
+    <Property Name="sonar.exclusions">**/Migrations/**/*.cs</Property>
   </ServerSettings>
   <LocalSettings>
     <Property Name="sonar.host.url">http://localhost:9000</Property>
-    <Property Name="sonar.exclusions">**/Migrations/**/*.cs</Property>
+    <Property Name="sonar.exclusions">**/Program.cs</Property>
   </LocalSettings>
   <ScannerOptsSettings />
   <AnalyzersSettings>

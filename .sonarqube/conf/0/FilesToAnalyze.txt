@@ -1,5 +1,9 @@
-﻿C:\Users\Administrator\Desktop\Apps\.NET-Vulnerable-API\VulnerableAPI\Controllers\AuthController.cs
+﻿C:\Users\Administrator\Desktop\Apps\.NET-Vulnerable-API\VulnerableAPI\Auth\DepartmentBasedDocumentRequirementHandler .cs
+C:\Users\Administrator\Desktop\Apps\.NET-Vulnerable-API\VulnerableAPI\Auth\DocumentRequirement.cs
+C:\Users\Administrator\Desktop\Apps\.NET-Vulnerable-API\VulnerableAPI\Auth\DocumentRequirementHandler.cs
+C:\Users\Administrator\Desktop\Apps\.NET-Vulnerable-API\VulnerableAPI\Controllers\AuthController.cs
 C:\Users\Administrator\Desktop\Apps\.NET-Vulnerable-API\VulnerableAPI\Controllers\AuthControllerV2.cs
+C:\Users\Administrator\Desktop\Apps\.NET-Vulnerable-API\VulnerableAPI\Controllers\DocumentsController.cs
 C:\Users\Administrator\Desktop\Apps\.NET-Vulnerable-API\VulnerableAPI\Controllers\ProductController.cs
 C:\Users\Administrator\Desktop\Apps\.NET-Vulnerable-API\VulnerableAPI\Controllers\UserController.cs
 C:\Users\Administrator\Desktop\Apps\.NET-Vulnerable-API\VulnerableAPI\Controllers\UtilityController.cs
@@ -7,6 +11,8 @@ C:\Users\Administrator\Desktop\Apps\.NET-Vulnerable-API\VulnerableAPI\Data\AppId
 C:\Users\Administrator\Desktop\Apps\.NET-Vulnerable-API\VulnerableAPI\Data\VulnerableDbContext.cs
 C:\Users\Administrator\Desktop\Apps\.NET-Vulnerable-API\VulnerableAPI\Migrations\20260215165514_First.cs
 C:\Users\Administrator\Desktop\Apps\.NET-Vulnerable-API\VulnerableAPI\Migrations\20260215165514_First.Designer.cs
+C:\Users\Administrator\Desktop\Apps\.NET-Vulnerable-API\VulnerableAPI\Migrations\20260226071024_Second.cs
+C:\Users\Administrator\Desktop\Apps\.NET-Vulnerable-API\VulnerableAPI\Migrations\20260226071024_Second.Designer.cs
 C:\Users\Administrator\Desktop\Apps\.NET-Vulnerable-API\VulnerableAPI\Migrations\Identity\20260220125219_App_Identity_Context.cs
 C:\Users\Administrator\Desktop\Apps\.NET-Vulnerable-API\VulnerableAPI\Migrations\Identity\20260220125219_App_Identity_Context.Designer.cs
 C:\Users\Administrator\Desktop\Apps\.NET-Vulnerable-API\VulnerableAPI\Migrations\Identity\AppIdentityDbContextModelSnapshot.cs
@@ -14,6 +20,8 @@ C:\Users\Administrator\Desktop\Apps\.NET-Vulnerable-API\VulnerableAPI\Migrations
 C:\Users\Administrator\Desktop\Apps\.NET-Vulnerable-API\VulnerableAPI\Models\AppRole.cs
 C:\Users\Administrator\Desktop\Apps\.NET-Vulnerable-API\VulnerableAPI\Models\AppUser.cs
 C:\Users\Administrator\Desktop\Apps\.NET-Vulnerable-API\VulnerableAPI\Models\AuthModels.cs
+C:\Users\Administrator\Desktop\Apps\.NET-Vulnerable-API\VulnerableAPI\Models\Document.cs
+C:\Users\Administrator\Desktop\Apps\.NET-Vulnerable-API\VulnerableAPI\Models\DocumentDto.cs
 C:\Users\Administrator\Desktop\Apps\.NET-Vulnerable-API\VulnerableAPI\Models\Product.cs
 C:\Users\Administrator\Desktop\Apps\.NET-Vulnerable-API\VulnerableAPI\Models\TokenResponse.cs
 C:\Users\Administrator\Desktop\Apps\.NET-Vulnerable-API\VulnerableAPI\Models\User.cs

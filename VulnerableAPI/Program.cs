@@ -310,7 +310,15 @@ app.Run();
 // SonarQube UI üzerinden;
 // Project Settings / General Settings / Anaysis Scope / Exclusions kısmında **/Migrations/**/*.cs ekleyelim. Migrations klasöründe yapılan değişiklikler ve eklenen kodlar ile ilgili detayları göremeyiz.
 
+// File Exclutions -> **/Program.cs
+// Folder Exclutions -> **/Migrations/**/*.cs
+
+
 // v2. Taratma
-// dotnet sonarscanner begin /k:"VulnerableAPI-Local-V3" /v:"2.0" /d:sonar.host.url="http://localhost:9000" /d:sonar.token="sqp_f3a69c5c7f197286c65ae0c79ecb826e46c3e657" /d:sonar.exclusions="**/Migrations/**/*.cs"
+// dotnet sonarscanner begin /k:".NET-Vulnerable-API" /v:"3.0" /d:sonar.host.url="http://localhost:9000" /d:sonar.token="sqp_b9d23a8d74b415e313b496878e9dcabab961474f" /d:sonar.exclusions="**/Program.cs"
 // dotnet build
+// dotnet sonarscanner end /d:sonar.login="sqp_b9d23a8d74b415e313b496878e9dcabab961474f"
 // History kısmında 2.0 versiyonunu görebiliriz. 2.0 versiyonunda yapılan değişiklikler ve eklenen kodlar ile ilgili detayları görebiliriz.
+
+
+
