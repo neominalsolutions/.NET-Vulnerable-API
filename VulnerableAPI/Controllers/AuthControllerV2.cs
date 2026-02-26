@@ -36,8 +36,8 @@ public class AuthControllerV2 : ControllerBase
     // Account Lockout işlemi manuel yapılacak. Çünkü SingIn Manager kullanmıyoruz. Bizim her hatalı durumda güvenli loglama ve 
     // Account Lockout işlemlerini yapmamız gerekir. 
     // Resource Based Access Control Sample. 
-    // UserController.TokeGetUserById(int id) için IDOR ataklarına karşı Id koruması sağlayacak Data Protection API kullım örneği ekleyelim.
-    // UserController.TokeGetUserById(int id) güvenlik açığında ortadan kaldırmalıyız. 
+    // UserController.GetUserById(int id) için IDOR ataklarına karşı Id koruması sağlayacak Data Protection API kullım örneği ekleyelim.
+    // UserController.GetUserById(int id) güvenlik açığında ortadan kaldırmalıyız. 
     // Sonarqube üzerinde Migration Rolsyn üzerinden sonarqube analiz edilmemesi için ne yapmalıyız ?.
 
     /// <summary>
@@ -74,6 +74,8 @@ public class AuthControllerV2 : ControllerBase
         return Ok(new { message = "User registered successfully", userId = entity.Id });
     }
 
+    // Not: Sadece burada 12.05 de hesaba giriş yapıp yamadığımızı test edicez. 
+
     /// <summary>
     /// Login endpoint with multiple vulnerabilities
     /// </summary>
@@ -83,7 +85,6 @@ public class AuthControllerV2 : ControllerBase
         
         var user = await userManager.FindByNameAsync(request.Username);
        
-
         if (user != null)
         {
 
@@ -92,52 +93,80 @@ public class AuthControllerV2 : ControllerBase
 
             if (!result)
             {
-                return Unauthorized(new { message = "Invalid credentials" });
+                user.AccessFailedCount += 1; // Hatalı giriş denemelerinde AccessFailedCount arttırılır.
+
+                if(user.AccessFailedCount >= 5) // 5 hatalı deneme sonrası hesabı kilitle
+                {
+                    user.LockoutEnabled = true; // Hesap kilitleme özelliği aktif edilir
+                    user.LockoutEnd = DateTime.UtcNow.AddMinutes(15); // Hesap 15 dakika kilitlenir
+                    await userManager.UpdateAsync(user); // Kullanıcı güncellenir
+                    return Unauthorized(new { message = "Invalid credentials" });
+                }
+                else
+                {
+                    await userManager.UpdateAsync(user); // Hatalı deneme sayısı güncellenir
+                    return Unauthorized(new { message = "Invalid credentials" });
+                }
+            
+              
             }
             else
             {
-                // VULNERABILITY: Hardcoded JWT secret key (API2:2023 - Broken Authentication)
-                var secretKey = "512249ca47e811669bcce502e986eefdab679635c5714c29e4bc410ccf04f5059ed9f1b73e91e85e0008820562f223e8b3e91fcc52530f9370726d47299d318d";
-                var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretKey));
-                var credentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha512); // Not. 256 bit yerine eğer simetrik key kullanılacak ise 512 öneriyoruz.
-                        
-                var claims = new List<Claim>
+                // hesap kilitlenmiş ise ama süre dolmuşsa
+                if(user.LockoutEnabled && user.LockoutEnd <= DateTime.Now)
+                {
+                    user.LockoutEnabled = false;
+                    user.AccessFailedCount = 0; // Hatalı deneme sayısını sıfırla
+                    await userManager.UpdateAsync(user); // Kullanıcı güncellenir
+
+                    // VULNERABILITY: Hardcoded JWT secret key (API2:2023 - Broken Authentication)
+                    var secretKey = "512249ca47e811669bcce502e986eefdab679635c5714c29e4bc410ccf04f5059ed9f1b73e91e85e0008820562f223e8b3e91fcc52530f9370726d47299d318d";
+                    var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretKey));
+                    var credentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha512); // Not. 256 bit yerine eğer simetrik key kullanılacak ise 512 öneriyoruz.
+
+                    var claims = new List<Claim>
                 {
                     new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
                     new Claim(ClaimTypes.Name, user.UserName),
                 };
 
-               
 
-                userclaims.ToList().ForEach(uc =>
+
+                    userclaims.ToList().ForEach(uc =>
+                    {
+                        claims.Add(new Claim(uc.Type, uc.Value));
+                    });
+
+
+
+                    var token = new JwtSecurityToken(
+                        issuer: "VulnerableAPI",
+                        audience: "VulnerableAPI",
+                   claims: claims,
+                        expires: DateTime.UtcNow.AddMinutes(5), // En fazla 5-15 dakikadan fazlası önerilmiyor. 365 gün verilmişti. 
+                        signingCredentials: credentials
+                    );
+
+                    var tokenString = new JwtSecurityTokenHandler().WriteToken(token);
+
+                    return Ok(new TokenResponse
+                    {
+                        AccessToken = tokenString,
+                        RefreshToken = Convert.ToBase64String(RandomNumberGenerator.GetBytes(32))
+                    });
+                }
+                else
                 {
-                    claims.Add(new Claim(uc.Type, uc.Value));
-                });
-        
+                    return Unauthorized(new { message = "Account is locked. Try again later." });
+                }
 
-           
-                var token = new JwtSecurityToken(
-                    issuer: "VulnerableAPI",
-                    audience: "VulnerableAPI",
-               claims: claims,
-                    expires: DateTime.UtcNow.AddMinutes(5), // En fazla 5-15 dakikadan fazlası önerilmiyor. 365 gün verilmişti. 
-                    signingCredentials: credentials
-                );
-
-                var tokenString = new JwtSecurityTokenHandler().WriteToken(token);
-
-                return Ok(new TokenResponse
-                {
-                    AccessToken = tokenString,
-                    RefreshToken = Convert.ToBase64String(RandomNumberGenerator.GetBytes(32))
-                });
+             
             }
         }
         else
         {
             return Unauthorized(new { message = "Invalid credentials" });
         }
-
 
     }
 

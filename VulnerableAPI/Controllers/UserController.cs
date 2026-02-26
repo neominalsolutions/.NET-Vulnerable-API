@@ -47,10 +47,13 @@ public class UserController : ControllerBase
         var currentUserId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
       _logger.LogInformation("User {CurrentUserId} is accessing user {RequestedUserId} details", currentUserId, id);
 
-      // ❌ VULNERABILITY: No check like this:
-        // if (currentUserId != id.ToString() && !User.IsInRole("Admin"))
-        //   return Forbid(new { message = "You can only access your own profile" });
-
+        // ❌ VULNERABILITY: No check like this:
+        if (currentUserId != id.ToString() && !User.IsInRole("Admin"))
+        {
+            return Forbid();
+        }
+            
+        
         var user = await _context.Users.FindAsync(id);
 
         if (user == null)
