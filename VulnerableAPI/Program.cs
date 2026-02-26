@@ -1,10 +1,12 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.RateLimiting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System.Text;
+using System.Threading.RateLimiting;
 using VulnerableAPI.Auth;
 using VulnerableAPI.Data;
 using VulnerableAPI.Models;
@@ -74,6 +76,37 @@ builder.Services.AddCors(options =>
          .AllowAnyMethod()
     .AllowAnyHeader();
     });
+});
+
+// Net 7.0 sonrasi artık building bir rate limiter özelliği frameworke eklendi. 
+// Rate Limiting Configuration for Auth Endpoints (Brute Force Protection)
+builder.Services.AddRateLimiter(options =>
+{
+    // IP bazlı rate limiting - Her IP için ayrı sayaç
+    options.AddFixedWindowLimiter("AuthEndpoints", opt =>
+    {
+        opt.Window = TimeSpan.FromSeconds(30);
+        opt.PermitLimit = 10;
+        opt.QueueProcessingOrder = QueueProcessingOrder.OldestFirst;
+        opt.QueueLimit = 0; // CRITICAL: Kuyruk olmasın, limit aşıldığında direkt 429 dönsün
+        opt.AutoReplenishment = true; // Otomatik olarak 30 saniye sonra yenilenir
+    });
+
+    options.RejectionStatusCode = StatusCodes.Status429TooManyRequests;
+
+    // 429 döndüğünde özel mesaj ve retry-after header ekleyelim
+    options.OnRejected = async (context, token) =>
+    {
+        context.HttpContext.Response.StatusCode = StatusCodes.Status429TooManyRequests;
+        context.HttpContext.Response.Headers["Retry-After"] = "30";
+
+        await context.HttpContext.Response.WriteAsJsonAsync(new
+        {
+            error = "Too Many Requests",
+            message = "Rate limit exceeded. Maximum 10 requests per 30 seconds allowed.",
+            retryAfterSeconds = 30
+        }, cancellationToken: token);
+    };
 });
 
 // Add PostgreSQL Database Context
@@ -197,6 +230,9 @@ app.UseSwaggerUI(c =>
 
 // VULNERABILITY: CORS allowing all origins
 app.UseCors("AllowAll");
+
+// Rate Limiting Middleware
+app.UseRateLimiter();
 
 // Global exception handler that reveals too much information
 app.UseExceptionHandler(errorApp =>
