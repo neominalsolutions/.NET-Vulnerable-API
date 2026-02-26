@@ -1,9 +1,11 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System.Text;
+using VulnerableAPI.Auth;
 using VulnerableAPI.Data;
 using VulnerableAPI.Models;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
@@ -160,6 +162,24 @@ builder.Services.AddAuthorization(opt =>
         policy.RequireClaim("Department", "IT");
     });
 });
+
+// Controller seviyesinde kullanılacak ise tanımlamak lazım. 
+
+builder.Services.AddAuthorization(opt =>
+{
+    opt.AddPolicy("DocumentOwner", policy =>
+    {
+        policy.RequireAuthenticatedUser();
+        policy.Requirements.Add(new DocumentRequirement());
+    });
+});
+
+// DocumentRequirementHandler -> her access kontrolünde bu servis uygulama genelinde çalışabilir olacak şekilde
+// IoC eklenmiş olsun. 
+
+// Controllerda IAuthorizationService bunun içinde aşağıdaki IoC tanımı yapılmalıdır. 
+builder.Services.AddSingleton<IAuthorizationHandler, DocumentRequirementHandler>();
+
 
 var app = builder.Build();
 
